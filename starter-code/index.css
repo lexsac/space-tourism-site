@@ -1,0 +1,180 @@
+/* ------------------------- */
+/* Custom properties */
+/* ------------------------- */
+
+:root {
+    /* colors */
+    --clr-dark-blue: 230 35% 7%; 
+    --clr-light-purple: 231 77% 90%;
+    --clr-light-cream: 0 0% 100%;
+
+    /* font sizes */
+    --fs-heading-1: 9.375rem; /* 150px */
+    --fs-heading-2: 6.25rem; /* 100px */
+    --fs-heading-3: 3.5rem; /* 56px */
+    --fs-heading-4: 2rem; /* 32px */
+    --fs-heading-5: 1.75rem; /* 28px */
+    --fs-subheading-1: 1.75rem; /* 28px */
+    --fs-suheading-2: 0.875rem; /* 14px */ 
+    --fs-nav-text: 1rem; /* 16px */
+
+    /* font-families */
+    --ff-body: 'Barlow Condensed', sans-serif;
+    --ff-heading: 'Bellefair', serif;
+}
+
+
+/* ------------------------- */
+/* CSS reset */
+/* Credit: https://www.joshwcomeau.com/css/custom-css-reset/ */
+/* ------------------------- */
+
+/* Use a more-intuitive box-sizing model */
+*, 
+*::before, 
+*::after {
+    box-sizing: border-box;
+  }
+
+/* Remove default margin*/
+* {
+    margin: 0;
+}
+
+/* Allow percentage-based heights in the application */
+html, body {
+    height: 100%;
+}
+
+/* Typographic tweaks! Add accessible line-height, improve text rendering */
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+}
+
+/* Improve media defaults */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* Remove built-in form typography styles */
+input, button, textarea, select {
+    font: inherit;
+}
+
+/* Avoid text overflows and set default font-weight */
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+    font-weight: 400; /* is this needed? */
+}
+
+/* Removes left padding on unordered lists */
+ul {
+    padding-left: 0;
+}
+
+/* Removes list style from li elements */
+li {
+    list-style: none;
+}
+
+/* Smaller line height for larger font sizes */
+h1, h2, h3 {
+    line-height: 1.1;
+}
+
+/* Remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ------------------------- */
+/* Utility classes */
+/* ------------------------- */
+
+/* general */ 
+.flex {
+    display: flex;
+    gap: var(--gap, 1rem);
+}
+
+.grid {
+    display: grid;
+    gap: var(--gap, 1rem);
+} 
+
+.flow > *:not(:first-child) {
+    margin-top: var(--flow-space, 1rem);
+}
+
+.container {
+    padding-inline: 2rem; /* inline sets left/right only */ 
+    max-width: 80rem;
+    margin-inline: auto; /* inline sets left/right only */ 
+}
+
+/* screen reader only, visually hides content for sighted users, but keep
+that content in the page so that users with assisted technologies can see
+more descriptive text  */ 
+ .sr-only { 
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hiddne;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap; /* added line */
+    border: 0;
+ }
+
+/* colors */
+.bg-dark-blue { background-color: hsl( var(--clr-dark-blue) );}
+.bg-light-purple {background-color: hsl( var(--clr-light-purple) );}
+.bg-light-cream {background-color: hsl( var(--clr-light-cream) );}
+
+.text-dark-blue {color: hsl( var(--clr-dark-blue) );}
+.text-light-purple {color: hsl( var(--clr-light-purple) );}
+.text-light-cream {color: hsl( var(--clr-light-cream) );}
+
+ /* typography */
+.ff-body { font-family: var(--ff-body);}
+.ff-heading { font-family: var(--ff-heading);}
+
+.letter-spacing-sm { letter-spacing: 2.35px; }
+.letting-spacing-med { letter-spacing: 2.7px; }
+.letter-spacing-lg { letter-spacing: 4.75px; }
+
+.uppercase { text-transform: uppercase; }
+
+ --fs-heading-1: 9.375rem; /* 150px */
+    --fs-heading-2: 6.25rem; /* 100px */
+    --fs-heading-3: 3.5rem; /* 56px */
+    --fs-heading-4: 2rem; /* 32px */
+    --fs-heading-5: 1.75rem; /* 28px */
+    --fs-subheading-1: 1.75rem; /* 28px */
+    --fs-suheading-2: 0.875rem; /* 14px */ 
+    --fs-nav-text: 1rem; /* 16px */
+
+.fs-heading-1 {font-size: var(--fs-heading-1);}
+.fs-heading-2 {font-size: var(--fs-heading-2);}
+.fs-heading-3 {font-size: var(--fs-heading-3);}
+.fs-heading-4 {font-size: var(--fs-heading-4);}
+.fs-heading-5 {font-size: var(--fs-heading-5);}
+.fs-subheading-1 {font-size: var(--fs-subheading-1);}
+.fs-subheading-2 {font-size: var(--fs-subheading-2);}
+.fs-nav-text {font-size: var(--fs-nav-text);}
+ 
+/* ------------------------- */
+/* Components */
+/* ------------------------- */
+
