@@ -719,3 +719,45 @@ more descriptive text  */
             'tabs image';
     }
 }
+
+/* ------------------------- */
+/* Technology page */
+/* ------------------------- */
+
+.technology {
+    background-image: url('./assets/technology/background-technology-mobile.jpg');
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+.selection-dots.tech > * {
+    cursor: pointer;
+    border: 1px solid hsl( var(--clr-light-cream) / 0.3);
+    border-radius: 50%;
+    padding: 2rem;
+    align-items: center;
+    background-color: hsl( var(--clr-light-cream) / 0);
+}
+
+.selection-dots.tech > *:hover,
+.selection-dots.tech > *:focus { 
+    background-color: hsl( var(--clr-light-cream) / 0.3);
+}
+
+.selection-dots.tech > [aria-selected="true"] {
+    background-color: hsl( var(--clr-light-cream) / 1); 
+}
+
+@media (min-width: 44em) {
+    .technology {
+        background-image: url('./assets/technology/background-technology-tablet.jpg');
+    }
+}
+
+@media (min-width: 60em) {
+    .technology {
+        background-image: url('./assets/technology/background-technology-desktop.jpg');
+    }
+}
