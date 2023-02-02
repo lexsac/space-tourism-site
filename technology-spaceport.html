@@ -14,45 +14,50 @@
   
   <title>Frontend Mentor | Space tourism website</title>
 </head>
-<body class="technology container">
+<body class="tech">
   <header class="primary-header | flex">
       <div>
-        <img src="./assets/shared/logo.svg" alt="space tourism logo" class="logo">
+        <a href="index.html">
+          <img src="./assets/shared/logo.svg" alt="space tourism logo" class="logo">
+        </a>      
       </div>
       <button class="mobile-nav-toggle" aria-controls="primary-navigation"><span class="sr-only" aria-expanded="false">Menu</span></button> 
       <nav>
         <ul class="primary-navigation | flex nav-link-underline" id="primary-navigation" data-visible="false">          
-          <li class="nav-link | uppercase text-light-cream fs-nav-text ff-body-condensed" aria-selected="false"><a href="index.html"><span aria-hidden="true" class="nav-span fw-bold">00</span> Home</a></li>
-          <li class="nav-link | uppercase text-light-cream fs-nav-text ff-body-condensed" aria-selected="false"><a href="destination-moon.html"><span aria-hidden="true" class="nav-span fw-bold">01</span> Destination</a></li>
-          <li class="nav-link | uppercase text-light-cream fs-nav-text ff-body-condensed" aria-selected="false"><a href="crew-commander.html"><span aria-hidden="true" class="nav-span fw-bold">02</span> Crew</a></li>
-          <li class="nav-link | active uppercase text-light-cream fs-nav-text ff-body-condensed" aria-selected="true"><a href="technology-vehicle.html"><span aria-hidden="true" class="nav-span fw-bold">03</span> Technology</a></li>
+          <li class="nav-link | uppercase text-light-cream fs-nav-text ff-body-condensed" aria-selected="false"><a href="index.html"><span aria-hidden="true" class="nav-span | fw-bold">00</span> Home</a></li>
+          <li class="nav-link | active uppercase text-light-cream fs-nav-text ff-body-condensed" aria-selected="true"><a href="destination-moon.html"><span aria-hidden="true" class="nav-span | fw-bold">01</span> Destination</a></li>
+          <li class="nav-link | uppercase text-light-cream fs-nav-text ff-body-condensed" aria-selected="false"><a href="crew-commander.html"><span aria-hidden="true" class="nav-span | fw-bold">02</span> Crew</a></li>
+          <li class="nav-link | uppercase text-light-cream fs-nav-text ff-body-condensed" aria-selected="false"><a href="technology-vehicle.html"><span aria-hidden="true" class="nav-span | fw-bold">03</span> Technology</a></li>
         </ul>
       </nav>
   </header>
 
   <main id="main">
-    <section class="grid-container grid-container--crew flow">
+    <section class="grid-container grid-container--tech flow">
       <div class="intro-text">
-        <h1 class="crew-title uppercase text-light-cream ff-body-condensed fs-400 ls-med"><span aria-hidden="true" class="crew-span | fw-bold">03</span>Space launch 101</h1>
+        <h1 class="tech-title | uppercase text-light-cream ff-body-condensed fs-400 ls-med"><span aria-hidden="true" class="crew-span | fw-bold">03</span>Space launch 101</h1>
       </div>
       
-      <ul class="selection-dots tech flex" aria-label="Technology terminology list">
-        <li class="ff-heading text-light-cream"><a aria-selected="false" href="technology-vehicle.html"><span class="selection-dot">1</span></a></li>
-        <li class="ff-heading text-light-cream"><a aria-selected="true" href="technology-spaceport.html"><span class="selection-dot">2</span></a></li>
-        <li class="ff-heading text-light-cream"><a aria-selected="false" href="technology-capsule.html"><span class="selection-dot">3</span></a></li>
+      <ul class="selection-dots selection-dots-tech | flex" aria-label="Technology terminology list">
+        <li class="ff-heading text-light-cream" aria-selected="false"><a href="technology-vehicle.html"><span class="selection-dot">1</span></a></li>
+        <li class="ff-heading text-light-cream" aria-selected="true"><a href="technology-spaceport.html"><span class="selection-dot">2</span></a></li>
+        <li class="ff-heading text-light-cream" aria-selected="false"><a href="technology-capsule.html"><span class="selection-dot">3</span></a></li>
       </ul>
 
-      <div class="crew-details">
-        <h2 class="crew-position | fs-600 uppercase fw-regular ff-heading">The terminology...</h2>
-        <h3 class="crew-name | fs-700 fw-regular ff-heading text-light-cream uppercase">Spaceport</h3>
-        <p class="crew-description | text-light-purple ff-body fs-300 fw-regular">A spaceport or cosmodrome is a site for launching (or receiving) spacecraft, 
+      <div class="tech-details">
+        <h2 class="fs-600 uppercase fw-regular ff-heading">The terminology...</h2>
+        <h3 class="fs-700 fw-regular ff-heading text-light-cream uppercase">Spaceport</h3>
+        <p class="text-light-purple ff-body fs-300 fw-regular">A spaceport or cosmodrome is a site for launching (or receiving) spacecraft, 
           by analogy to the seaport for ships or airport for aircraft. Based in the 
           famous Cape Canaveral, our spaceport is ideally situated to take advantage 
           of the Earth's rotation for launch.
         </p>
       </div>
 
-      <img class="crew-img" src="./assets/technology/image-spaceport-landscape.jpg" alt="Launch vehicle">
+      <picture class="tech-image">
+        <source srcset="./assets/technology/image-spaceport-portrait.jpg" media="(min-width: 60em)">
+        <img src="./assets/technology/image-spaceport-landscape.jpg" alt="Spaceport">
+      </picture>
     </section>
   </main>
 

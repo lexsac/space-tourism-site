@@ -14,52 +14,54 @@
   
   <title>Frontend Mentor | Space tourism website</title>
 </head>
-<body class="destination container">
+<body class="destination">
   <header class="primary-header | flex">
       <div>
-        <img src="./assets/shared/logo.svg" alt="space tourism logo" class="logo">
+        <a href="index.html">
+          <img src="./assets/shared/logo.svg" alt="space tourism logo" class="logo">
+        </a>      
       </div>
       <button class="mobile-nav-toggle" aria-controls="primary-navigation"><span class="sr-only" aria-expanded="false">Menu</span></button> 
       <nav>
         <ul class="primary-navigation | flex nav-link-underline" id="primary-navigation" data-visible="false">          
-          <li class="nav-link | uppercase text-light-cream fs-nav-text ff-body-condensed" aria-selected="false"><a href="index.html"><span aria-hidden="true" class="nav-span fw-bold">00</span> Home</a></li>
-          <li class="nav-link | active uppercase text-light-cream fs-nav-text ff-body-condensed" aria-selected="true"><a href="destination-moon.html"><span aria-hidden="true" class="nav-span fw-bold">01</span> Destination</a></li>
-          <li class="nav-link | uppercase text-light-cream fs-nav-text ff-body-condensed" aria-selected="false"><a href="crew-commander.html"><span aria-hidden="true" class="nav-span fw-bold">02</span> Crew</a></li>
-          <li class="nav-link | uppercase text-light-cream fs-nav-text ff-body-condensed" aria-selected="false"><a href="technology-vehicle.html"><span aria-hidden="true" class="nav-span fw-bold">03</span> Technology</a></li>
+          <li class="nav-link | uppercase text-light-cream fs-nav-text ff-body-condensed" aria-selected="false"><a href="index.html"><span aria-hidden="true" class="nav-span | fw-bold">00</span> Home</a></li>
+          <li class="nav-link | active uppercase text-light-cream fs-nav-text ff-body-condensed" aria-selected="true"><a href="destination-moon.html"><span aria-hidden="true" class="nav-span | fw-bold">01</span> Destination</a></li>
+          <li class="nav-link | uppercase text-light-cream fs-nav-text ff-body-condensed" aria-selected="false"><a href="crew-commander.html"><span aria-hidden="true" class="nav-span | fw-bold">02</span> Crew</a></li>
+          <li class="nav-link | uppercase text-light-cream fs-nav-text ff-body-condensed" aria-selected="false"><a href="technology-vehicle.html"><span aria-hidden="true" class="nav-span | fw-bold">03</span> Technology</a></li>
         </ul>
       </nav>
   </header>
 
   <main id="main">
-    <section class="grid-container grid-container--destination flow">
+    <section class="grid-container grid-container--destination | flow">
       <div class="intro-text">
-        <h1 class="destination-title uppercase text-light-cream ff-body-condensed fs-400 ls-med"><span aria-hidden="true" class="destination-span | fw-bold">01</span>Pick your destination</h1>
+        <h1 class="destination-title | uppercase text-light-cream ff-body-condensed fs-400 fw-regular ls-med"><span aria-hidden="true" class="destination-span | fw-bold">01</span>Pick your destination</h1>
         <picture>
-          <img class="planet-img" src="./assets/destination/image-titan.png" alt="The moon">
+          <img class="destination-img" src="./assets/destination/image-titan.png" alt="The moon">
         </picture>
       </div>
 
       <div>
-        <ul class="tab-list | flex nav-link-underline" id="secondary-navigation">
-          <li class="tab-link nav-link | uppercase text-light-purple fs-nav-text ff-body-condensed ls-sm" aria-selected="false"><a href="destination-moon.html">Moon</a></li>
+        <ul class="tab-list | flex nav-link-underline fs-300" id="secondary-navigation">
+          <li class="tab-link nav-link | active uppercase text-light-purple fs-nav-text ff-body-condensed ls-sm" aria-selected="true"><a href="destination-moon.html">Moon</a></li>
           <li class="tab-link nav-link | uppercase text-light-purple fs-nav-text ff-body-condensed ls-sm" aria-selected="false"><a href="destination-mars.html">Mars</a></li>
           <li class="tab-link nav-link | uppercase text-light-purple fs-nav-text ff-body-condensed ls-sm" aria-selected="false"><a href="destination-europa.html">Europa</a></li>
-          <li class="tab-link nav-link | active uppercase text-light-purple fs-nav-text ff-body-condensed ls-sm" aria-selected="true"><a href="destination-titan.html">Titan</a></li>
+          <li class="tab-link nav-link | uppercase text-light-purple fs-nav-text ff-body-condensed ls-sm" aria-selected="false"><a href="destination-titan.html">Titan</a></li>
         </ul>
-        <h2 class="text-light-cream fs-800 uppercase fw-regular ff-heading">Titan</h2>
-        <p class="text-light-purple ff-body">The only moon known to have a dense atmosphere other than Earth, Titan 
+        <h2 class="destination-name | text-light-cream fs-800 uppercase fw-regular ff-heading">Titan</h2>
+        <p class="destination-details text-light-purple ff-body fs-300">The only moon known to have a dense atmosphere other than Earth, Titan 
           is a home away from home (just a few hundred degrees colder!). As a 
           bonus, you get striking views of the Rings of Saturn.
         </p>
 
         <div class="destination-info | flex text-light-cream">
           <div>
-            <h3 class="text-light-purple uppercase ff-body-condensed fs-300">Avg. distance</h3>
-            <p class="uppercase fs-400">1.6 bil. km</p>
+            <h3 class="text-light-purple uppercase ff-body-condensed fw-regular fs-200">Avg. distance</h3>
+            <p class="uppercase">1.6 bil. km</p>
           </div>
           <div>
-            <h3 class="text-light-purple uppercase ff-body-condensed fs-300">Est. travel time</h3>
-            <p class="uppercase fs-400">7 years</p>
+            <h3 class="text-light-purple uppercase ff-body-condensed fw-regular fs-200">Est. travel time</h3>
+            <p class="uppercase">7 years</p>
         </div>
       </div>
     </section>
