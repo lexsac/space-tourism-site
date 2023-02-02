@@ -89,9 +89,6 @@ body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     min-height: 100vh;
-
-    display: grid;
-    grid-template-rows: min-content 1fr;
 }
 
 /* Improve media defaults */
@@ -154,16 +151,8 @@ h1, h2, h3 {
     gap: var(--gap, 1rem);
 }
 
-/* what is this??? */
-.flow > *:not(:first-child) {
+.flow > *:where(:not(:first-child)) {
     margin-top: var(--flow-space, 1rem);
-}
-
-/* do I need this ? */
-.container {
-    padding-inline: 2rem; /* inline sets left/right only */ 
-    max-width: 80rem;
-    margin-inline: auto; /* inline sets left/right only */ 
 }
 
 /* screen reader only, visually hides content for sighted users, but keep
@@ -175,7 +164,7 @@ more descriptive text  */
     height: 1px;
     padding: 0;
     margin: -1px;
-    overflow: hiddne;
+    overflow: hidden;
     clip: rect(0, 0, 0, 0);
     white-space: nowrap; /* added line */
     border: 0;
@@ -209,12 +198,15 @@ more descriptive text  */
 
 .fw-regular {font-weight: var(--fw-regular);}
 .fw-bold {font-weight: var(--fw-bold);}
+
+.ls-sm {letter-spacing: var(--ls-sm);}
+.ls-med {letter-spacing: var(--ls-med);}
  
 /* ------------------------- */
-/* General styling */
+/* Homepage styling */
 /* ------------------------- */
 
-/* General styling */
+/* General styling (mobile-first) */
 .home {
     background-image: url('./assets/home/background-home-mobile.jpg');
     height: 100vh;
@@ -223,11 +215,23 @@ more descriptive text  */
     padding: 1.5rem;
 }
 
+.grid-container {
+    display: grid;
+    text-align: center;
+    height: 100%;
+    place-items: center;
+}
+
+.grid-container--home {
+    text-align: center;
+}
+
 .intro-text span {
     display: block;
     padding: 1rem 0;
 }
 
+/* Explore button */
 .explore-button {
     border-radius: 50%;
     aspect-ratio: 1;
@@ -254,22 +258,66 @@ more descriptive text  */
     transform: scale(1.5); /* animation on width and height is taxing for browser and could lead to overflows, so this is a better option */
 }
 
-.grid-container {
-    border: 5px solid limegreen;
-    display: grid;
-    text-align: center;
-    height: 100%;
-    place-items: center;
+/* Tablet */
+@media (min-width: 44em) {
+    .home {
+        background-image: url('./assets/home/background-home-tablet.jpg');
+    }
+
+    .grid-container--home > .intro-text {
+        padding-bottom: 11rem;
+    }
+
+    .intro-text h1 {
+        letter-spacing: var(--ls-lg);
+        letter-spacing: 3.38px;
+    }
+
+    .intro-text p {
+        max-width: 80%;
+        margin: 0 auto;
+    }
+
+    .explore-button {
+        padding: 3.5rem;
+    }
 }
 
-.grid-container > *:first-child {
-    outline: 1px solid red;
+/* Desktop */
+@media (min-width: 60em) {
+    .home {
+        background-image: url('./assets/home/background-home-desktop.jpg');
+    }
+
+    .grid-container--home {
+        grid-template-columns: repeat(5, 1fr);
+        align-items: end;
+        padding-bottom: 6rem;
+    }
+
+    .intro-text {
+        padding-bottom: 0;
+    }
+
+    .intro-text {
+        text-align: left;
+    }
+
+    .intro-text h1 {
+        letter-spacing: var(--ls-xl);
+    }
+
+    .intro-text p {
+        max-width: 100%;
+        margin-left: 0;
+    }
 }
 
-.grid-container > *:last-child {
-    outline: 1px solid yellow;
-}
+/* ------------------------- */
+/* Navigation styling */
+/* ------------------------- */
 
+/* Mobile nav */
 @media (max-width: 44em) {
     .primary-navigation[data-visible="true"] {
         transform: translateX(0);
@@ -307,17 +355,40 @@ more descriptive text  */
     }
 }
 
-/* Navigation */
+/* Tablet nav */
 @media (min-width: 44em) {
     .primary-navigation {
         flex-direction: row;
         --gap: 3rem;
         background-color: hsl(var(--clr-light-cream) / 0.05);
         backdrop-filter: blur(1.5rem);
-        position: relative;
+        position: absolute;
+        top: 0;
+        right: 0;
         z-index: 100;
-        padding: 5rem 2rem;
+        padding: 0 3rem;
         letter-spacing: var(--ls-sm);
+    }
+
+    .nav-link {
+        padding: 2rem 0;
+    }
+
+    .nav-link-underline > * {
+        cursor: pointer;
+        border-bottom: 0.2rem solid hsl(var(--clr-light-cream) / 0);
+    }  
+    
+    .nav-link-underline > *:hover,
+    .nav-link-underline > *:focus {
+        cursor: pointer;
+        border-color: hsl(var(--clr-light-cream) / 0.5);
+    } 
+    
+    .nav-link-underline > .active,
+    .nav-link-underline > [aria-selected="true"] {
+        border-color: hsl(var(--clr-light-cream) / 1);
+        color: hsl(var(--clr-light-cream));
     }
 
     .home {
@@ -332,80 +403,17 @@ more descriptive text  */
         display: none;
     }
 
-    .intro-text {
-        padding-bottom: 11rem;
-    }
-
-    .intro-text h1 {
-        letter-spacing: var(--ls-lg);
-        letter-spacing: 3.38px;
-    }
-
-    .intro-text p {
-        max-width: 80%;
-        margin: 0 auto;
-    }
-
-    .primary-header {
+    .home > .primary-header {
         margin-bottom: 8rem;
         justify-content: space-between;
         align-items: center;
     }
-
-    .logo {
-        padding: 0 1rem;
-    }
-
-    .explore-button {
-        padding: 3.5rem;
-    }
 }
 
+/* Desktop nav */
 @media (min-width: 60em) {
     .home {
         background-image: url('./assets/home/background-home-desktop.jpg');
-    }
-
-    .logo {
-        padding: 0 2rem;
-    }
-
-    .grid-container {
-        grid-template-columns: repeat(5, 1fr);
-        align-items: end;
-        padding-bottom: 6rem;
-    }
-
-    .intro-text {
-        padding-bottom: 0;
-    }
-    
-    /* .grid-container > *:first-child {
-        grid-column: 2 / 3;
-        outline: 1px solid red;
-    }
-
-    .grid-container > *:last-child {
-        grid-column: 4 / 5;
-        outline: 1px solid yellow;
-    } */
-
-    .intro-text {
-        text-align: left;
-    }
-
-    .intro-text h1 {
-        letter-spacing: var(--ls-xl);
-    }
-
-    .intro-text p {
-        max-width: 100%;
-        margin-left: 0;
-    }
-
-    .primary-navigation {
-        padding: 0 10rem 0 7rem;
-        margin-top: 2rem;
     }
 
     .nav-link {
@@ -416,23 +424,118 @@ more descriptive text  */
     .nav-span {
         display: inline;
     }
+}
 
-    .nav-link-underline > * {
-        cursor: pointer;
-        border-bottom: 0.2rem solid hsl(var(--clr-light-cream) / 0);
-    }  
+/* ------------------------- */
+/* Destination page */
+/* ------------------------- */
 
-    .nav-link-underline > *:hover,
-    .nav-link-underline > *:focus {
-        cursor: pointer;
-        border-color: hsl(var(--clr-light-cream) / 0.5);
-    } 
+.destination {
+    background-image: url('./assets/destination/background-destination-mobile.jpg');
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 1.5rem;
+    text-align: center;
+}
 
-    .nav-link-underline > .active,
-    .nav-link-underline > [aria-selected="true"] {
-        border-color: hsl(var(--clr-light-cream) / 1);
+.destination span {
+    display: inline;
+    padding-right: 1rem;
+    color:hsl( var(--clr-light-cream) / 0.5 );
+}
+
+.destination-title {
+    padding-top: 2rem;
+}
+
+.destination-info {
+    flex-direction: column;
+    border-top: 1px solid hsl(var(--clr-light-cream) / 0.2);
+    padding-top: 2rem;
+    margin-top: 2rem;
+}
+
+.grid-container--destination {
+    --flow-space: 2rem;
+}
+
+.planet-img {
+    max-width: 60%;
+    margin-inline: auto;
+    padding-top: 2rem;
+}
+
+.tab-list > .nav-link {
+    margin: 0 1rem 0 0;
+    padding-bottom: 0.5rem;
+}
+
+.tab-list, .destination-info {
+    justify-content: center;
+}
+
+.tab-list.nav-link-underline > * {
+    cursor: pointer;
+    border-bottom: 0.2rem solid hsl(var(--clr-light-cream) / 0);
+}  
+
+.tab-list.nav-link-underline > *:hover,
+.tab-list.nav-link-underline > *:focus {
+    cursor: pointer;
+    border-color: hsl(var(--clr-light-cream) / 0.5);
+} 
+
+.tab-list.nav-link-underline > .active,
+.tab-list.nav-link-underline > [aria-selected="true"] {
+    border-color: hsl(var(--clr-light-cream) / 1);
+    color: hsl(var(--clr-light-cream));
+}
+
+@media (min-width: 44em) {
+    
+    .destination {
+        background-image: url('./assets/destination/background-destination-tablet.jpg');
+        padding: 2.5rem;
+    }
+
+    .destination-info {
+        flex-direction: row;
+        gap: 5rem;
+    }
+
+    .destination-title {
+        padding-top: 5rem;
+        text-align: left;
+    }
+
+    .intro-text {
+        width: 100%;
     }
 }
 
+@media (min-width: 60em) {
+    .destination {
+        background-image: url('./assets/destination/background-destination-desktop.jpg');
+    }
 
+    .destination-title {
+        text-align: left;
+    }
 
+    .grid-container--destination {
+        display: grid;
+        gap: 5rem;
+        text-align: left;
+        grid-template-columns: repeat(2, 1fr);
+        padding-inline: 4rem;
+    }
+
+    .planet-img {
+        max-width: 90%;
+    }
+
+    .tab-list, .destination-info {
+        justify-content: left;
+    }
+}
